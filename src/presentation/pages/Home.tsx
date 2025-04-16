@@ -7,7 +7,7 @@ const Home = () => {
         </p>
   
         <button className="mt-4 px-4 py-2 bg-green text-black font-semibold rounded">
-          Play
+          {import.meta.env.MODE}
         </button>
       </div>
     );
