@@ -1,12 +1,19 @@
+import Section from "../components/molecules/Section";
+import Sidebar from "../components/organisms/Sidebar";
+import Topbar from "../components/atoms/Topbar";
+
 const Home = () => {
   return (
-    <div className="min-h-screen bg-spotify-background text-text p-6">
-      <h1 className="text-3xl font-bold">Spotify Clone 🎵</h1>
-      <p className="text-subtext mt-2">Home screen 😎</p>
-
-      <button className="mt-4 px-4 py-2 bg-green text-black font-semibold rounded">
-        {import.meta.env.MODE}
-      </button>
+    <div className="flex h-screen bg-[#121212] text-white">
+      <Sidebar />
+      <div className="flex-1 overflow-y-auto">
+        <Topbar />
+        <div className="p-6 space-y-8">
+          <Section title="Recently played" />
+          <Section title="Made For You" />
+          <Section title="Your top mixes" />
+        </div>
+      </div>
     </div>
   );
 };
