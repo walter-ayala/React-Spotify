@@ -1,20 +1,19 @@
-import Section from "../components/molecules/Section";
-import Sidebar from "../components/organisms/Sidebar";
-import Topbar from "../components/atoms/Topbar";
+import MainLayout from "../components/templates/MainLayout";
 
 const Home = () => {
   return (
-    <div className="flex h-screen bg-[#121212] text-white">
-      <Sidebar />
-      <div className="flex-1 overflow-y-auto">
-        <Topbar />
-        <div className="p-6 space-y-8">
-          <Section title="Recently played" />
-          <Section title="Made For You" />
-          <Section title="Your top mixes" />
-        </div>
+    <MainLayout>
+      <h1 className="text-2xl font-bold mb-4">Viernes de lanzamientos</h1>
+      <div className="grid grid-cols-5 gap-4">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="bg-[#181818] p-4 rounded-md hover:bg-[#282828]">
+            <div className="h-40 bg-gray-600 rounded-md mb-2" />
+            <p className="text-white font-semibold">Nombre Playlist</p>
+            <p className="text-sm text-gray-400">Descripción</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </MainLayout>
   );
 };
 

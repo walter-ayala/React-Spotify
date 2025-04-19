@@ -1,24 +1,30 @@
+import { useState } from "react";
+import { Home, Search, Library } from "lucide-react";
+import clsx from "clsx";
+
 const Sidebar = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <div className="w-64 bg-[#000] p-6 space-y-6 flex flex-col">
-      <h1 className="text-2xl font-bold mb-6">Spotify</h1>
-      <nav className="space-y-3">
-        <a href="#" className="hover:text-green-500">
-          Home
+    <div className={clsx("bg-black text-white transition-all duration-300", collapsed ? "w-20" : "w-64")}>
+      <div className="flex justify-between items-center p-4">
+        <h2 className={clsx("text-xl font-bold", collapsed && "hidden")}>Spotify</h2>
+        <button onClick={() => setCollapsed(!collapsed)}>☰</button>
+      </div>
+      <nav className="flex flex-col gap-4 p-4">
+        <a href="#" className="flex items-center gap-2">
+          <Home size={20} />
+          {!collapsed && <span>Inicio</span>}
         </a>
-        <a href="#" className="hover:text-green-500">
-          Search
+        <a href="#" className="flex items-center gap-2">
+          <Search size={20} />
+          {!collapsed && <span>Buscar</span>}
         </a>
-        <a href="#" className="hover:text-green-500">
-          Your Library
+        <a href="#" className="flex items-center gap-2">
+          <Library size={20} />
+          {!collapsed && <span>Tu Biblioteca</span>}
         </a>
       </nav>
-      <hr className="border-t border-gray-700 my-4" />
-      <div className="text-sm text-gray-400 space-y-2">
-        <p>Playlist 1</p>
-        <p>Playlist 2</p>
-        <p>Playlist 3</p>
-      </div>
     </div>
   );
 };
