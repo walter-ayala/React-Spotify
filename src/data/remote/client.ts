@@ -23,7 +23,7 @@ const client = async <T>(url: string, options: RequestInit = {}, isRetry = false
   };
 
   try {
-    const response = await fetch(`${baseURL}/${url}`, fetchOptions);
+    const response = await fetch(`${baseURL}${url}`, fetchOptions);
     const code = response.status;
     const success = response.ok;
 
